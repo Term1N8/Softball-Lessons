@@ -85,6 +85,34 @@
             font-size: 18px;
             padding: 10px;
         }
+        /* Navigation Buttons */
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        .nav-buttons button,
+        .dot-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons button:hover,
+        .dot-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dot-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .dot-buttons button.active {
+            background-color: #ff6b6b;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -106,6 +134,8 @@
             // Slide Show for About Courtney
             let slideIndex = 0;
             const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot-buttons button');
+            
             function showSlide(index) {
                 const totalSlides = slides.length;
                 if (index >= totalSlides) {
@@ -115,13 +145,26 @@
                 }
                 const offset = -slideIndex * 100; // Move slide
                 document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+                
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[slideIndex].classList.add('active');
             }
 
             // Auto slide every 3 seconds
             setInterval(function() {
                 slideIndex++;
                 showSlide(slideIndex);
-            }, 3000); // Change every 3 seconds
+            }, 10000); // Change every 3 seconds
+
+
+            // Add event listeners for dot buttons
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    slideIndex = index;
+                    showSlide(slideIndex);
+                });
+            });
         });
     </script>
 </head>
@@ -145,6 +188,15 @@
                     <p>She is committed to improving the skills of every player, ensuring each one achieves their full potential.</p>
                 </div>
                 <!-- Add more slides here as needed -->
+            </div>
+            <!-- Navigation Buttons -->
+        
+            <!-- Dot Navigation -->
+            <div class="dot-buttons">
+                <button class="active"></button>
+                <button></button>
+                <button></button>
+                <!-- Add more dots if you have more slides -->
             </div>
         </div>
         <div class="section">
