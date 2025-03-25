@@ -89,6 +89,22 @@
         .nav-buttons {
             margin-top: 20px;
         }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
         .nav-buttons button,
         .dot-buttons button {
             background-color: rgba(0, 0, 0, 0.5);
@@ -225,7 +241,7 @@
             <p>Interested in booking a lesson? Fill out the form below to get started!</p>
             <a href="https://forms.gle/YOUR_FORM_LINK" class="button" target="_blank">Sign Up for Lessons</a>
         </div>
-        <div class="section">
+     <div class="section">
             <h2>Gallery</h2>
             <div class="gallery">
                 <img src="img/award.jpg" alt="Courtney in Action">
