@@ -161,7 +161,7 @@
                 slideIndex = totalSlides - 1;
             }
             const offset = -slideIndex * 100; // Move slide
-            document.querySelector('.slides').style.transform = translateX(${offset}%);
+            document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
 
             // Update active dot
             dots.forEach(dot => dot.classList.remove('active'));
